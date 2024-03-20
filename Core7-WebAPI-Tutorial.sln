@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentatio
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{9B40E534-586C-4253-8FAC-44C791129A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Application", "Core\WebApi.Application\WebApi.Application.csproj", "{F2C3F745-DCD0-421B-83E2-F99AC75FB244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Application", "Core\WebApi.Application\WebApi.Application.csproj", "{F2C3F745-DCD0-421B-83E2-F99AC75FB244}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Domain", "Core\WebApi.Domain\WebApi.Domain.csproj", "{0F2A73C6-E01C-4157-B0BC-5CA8796C7316}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Domain", "Core\WebApi.Domain\WebApi.Domain.csproj", "{0F2A73C6-E01C-4157-B0BC-5CA8796C7316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Infrastructure", "Infrastructure\WebApi.Infrastructure\WebApi.Infrastructure.csproj", "{0960399E-8585-4EAD-B6BD-8183D4CC2FBC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Infrastructure", "Infrastructure\WebApi.Infrastructure\WebApi.Infrastructure.csproj", "{0960399E-8585-4EAD-B6BD-8183D4CC2FBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Persistence", "Infrastructure\WebApi.Persistence\WebApi.Persistence.csproj", "{02436FBB-08A2-41BD-ADCA-F4D118C13AE2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.Persistence", "Infrastructure\WebApi.Persistence\WebApi.Persistence.csproj", "{02436FBB-08A2-41BD-ADCA-F4D118C13AE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.ApiUI", "Presentation\WebApi.ApiUI\WebApi.ApiUI.csproj", "{49665405-8AAC-42D8-B6C3-54DA6F68AA2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApi.ApiUI", "Presentation\WebApi.ApiUI\WebApi.ApiUI.csproj", "{49665405-8AAC-42D8-B6C3-54DA6F68AA2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApi.Mapper", "WebApi.Mapper\WebApi.Mapper.csproj", "{AC994577-348F-4B08-919C-03CB6D5C5575}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{49665405-8AAC-42D8-B6C3-54DA6F68AA2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{49665405-8AAC-42D8-B6C3-54DA6F68AA2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{49665405-8AAC-42D8-B6C3-54DA6F68AA2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC994577-348F-4B08-919C-03CB6D5C5575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC994577-348F-4B08-919C-03CB6D5C5575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC994577-348F-4B08-919C-03CB6D5C5575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC994577-348F-4B08-919C-03CB6D5C5575}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{0960399E-8585-4EAD-B6BD-8183D4CC2FBC} = {2DBCAD6D-3B59-4188-A18C-F0E7A28FC5E8}
 		{02436FBB-08A2-41BD-ADCA-F4D118C13AE2} = {2DBCAD6D-3B59-4188-A18C-F0E7A28FC5E8}
 		{49665405-8AAC-42D8-B6C3-54DA6F68AA2D} = {23FFB592-C393-4986-8C5D-6E2604D0F319}
+		{AC994577-348F-4B08-919C-03CB6D5C5575} = {9B40E534-586C-4253-8FAC-44C791129A42}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BF07B562-8767-476E-ABBF-C2FE210CB9BA}
