@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LinqKit;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 using System;
 using System.Collections.Generic;
@@ -36,14 +37,15 @@ namespace WebApi.Persistence.Repositories
             return Table.Where(predicate);
         }
 
-        public async Task<IList<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false)
+        public async Task<IList<T>> GetAllAsync(Expression<Func<T, bool>>? predicate = null, Expression<Func<T, bool>>? where = null, Func<IQueryable<T>, IIncludableQueryable<T, object>>? include = null, Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null, bool enableTracking = false)
         {
             IQueryable<T> queryable = Table;
             if (!enableTracking) queryable = queryable.AsNoTracking();
             if (include is not null) queryable = include(queryable);
             if (predicate is not null) queryable = queryable.Where(predicate);
+            if (where is not null) queryable = queryable.Where(where);              // where eklendi
             if (orderBy is not null) return await orderBy(queryable).ToListAsync();
-
+            
             return await queryable.ToListAsync();
         }
 
