@@ -25,7 +25,7 @@ namespace WebApi.Application.Features.Products.Queries.GetAllProducts
 
         public async Task<IList<GetAllProductQueryResponse>> Handle(GetAllProductQueryRequest request, CancellationToken cancellationToken)
         {
-            var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync(include:x=>x.Include(b=>b.Brand));
+            var products = await unitOfWork.GetReadRepository<Product>().GetAllAsync(include:x=>x.Include(b=>b.Brand), where: x=>x.IsDeleted == false); // where eklendi
             var brand = mapper.Map<BrandDto, Brand>(new Brand());
 
             //List<GetAllProductQueryResponse> response = new();
