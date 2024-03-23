@@ -32,7 +32,7 @@ namespace WebApi.ApiUI.Controllers
             return Ok();
         }
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct(UpdateCreateCommandRequest request)
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
         {
             await mediator.Send(request);
             return Ok();

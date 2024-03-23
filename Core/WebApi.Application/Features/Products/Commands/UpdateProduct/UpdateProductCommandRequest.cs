@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.Application.Features.Products.Commands.UpdateProduct
 {
-    public class UpdateCreateCommandRequest:IRequest
+    public class UpdateProductCommandRequest:IRequest<Unit>
     {
         public int Id { get; set; }
         public string Title { get; set; }
