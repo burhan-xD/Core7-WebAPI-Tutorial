@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Application.Exceptions;
 
 namespace WebApi.Application
 {
@@ -14,6 +15,8 @@ namespace WebApi.Application
         {
             var assembly = Assembly.GetExecutingAssembly();
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+
+            services.AddTransient<ExceptionMiddleware>();
         }
     }
 }
