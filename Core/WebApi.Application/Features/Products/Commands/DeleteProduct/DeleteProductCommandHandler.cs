@@ -9,7 +9,7 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Application.Features.Products.Commands.DeleteProduct
 {
-    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest>
+    public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -17,13 +17,15 @@ namespace WebApi.Application.Features.Products.Commands.DeleteProduct
         {
             this.unitOfWork = unitOfWork;
         }
-        public async Task Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteProductCommandRequest request, CancellationToken cancellationToken)
         {
             var produtc = await unitOfWork.GetReadRepository<Product>().GetAsync(x => x.Id == request.Id && !x.IsDeleted);
             produtc.IsDeleted = true;  // It is not deleted from the database!
 
             await unitOfWork.GetWriteRepository<Product>().UpdateAsync(produtc);
             await unitOfWork.SaveAsync();
+
+            return Unit.Value;
         }
     }
 }

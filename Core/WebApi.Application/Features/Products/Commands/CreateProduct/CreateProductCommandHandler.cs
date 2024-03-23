@@ -9,7 +9,7 @@ using WebApi.Domain.Entities;
 
 namespace WebApi.Application.Features.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest, Unit>
     {
         private readonly IUnitOfWork unitOfWork;
 
@@ -17,7 +17,7 @@ namespace WebApi.Application.Features.Products.Commands.CreateProduct
         {
             this.unitOfWork = unitOfWork;
         }
-        public async Task Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
             Product product = new(
                 request.Title,
@@ -39,6 +39,8 @@ namespace WebApi.Application.Features.Products.Commands.CreateProduct
 
                 await unitOfWork.SaveAsync();
             }
+
+            return Unit.Value;
         }
     }
 }
