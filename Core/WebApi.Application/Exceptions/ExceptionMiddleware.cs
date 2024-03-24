@@ -42,8 +42,7 @@ namespace WebApi.Application.Exceptions
 
             List<string> errors = new()
             {
-                exception.Message,
-                $"Hata Açıklaması: {exception.InnerException?.ToString()}"
+                $"Hata Mesajı_xD: {exception.Message}"
             };
 
             return httpContext.Response.WriteAsync(new ExceptionModel
