@@ -13,6 +13,6 @@ namespace WebApi.Application.Interfaces.Tokens
     {
         Task<JwtSecurityToken> CreateToken(User user, IList<string> roles);
         string GenerateRefreshToken();
-        ClaimsPrincipal? GerPrincipalFromExpiredToken(string? token);
+        ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token);
     }
 }
