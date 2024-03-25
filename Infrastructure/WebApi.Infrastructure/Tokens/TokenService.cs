@@ -62,7 +62,7 @@ namespace WebApi.Infrastructure.Tokens
             return Convert.ToBase64String(randomNumber);
         }
 
-        public ClaimsPrincipal? GerPrincipalFromExpiredToken(string? token)
+        public ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token)
         {
             TokenValidationParameters tokenValidationParamaters = new()
             {

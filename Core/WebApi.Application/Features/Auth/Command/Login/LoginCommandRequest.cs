@@ -10,10 +10,10 @@ namespace WebApi.Application.Features.Auth.Command.Login
 {
     public class LoginCommandRequest : IRequest<LoginCommandResponse>
     {
-        [DefaultValue("testmest@mest.test")]
+        [DefaultValue("testmest@mest.test")]  // for swager-test
         public string Email { get; set; }
 
-        [DefaultValue("123456")]
+        [DefaultValue("123456")]            // for swager-test
         public string Password { get; set; }
     }
 }
