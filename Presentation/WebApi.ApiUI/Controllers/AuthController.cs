@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using WebApi.Application.Features.Auth.Command.Login;
 using WebApi.Application.Features.Auth.Command.RefreshToken;
 using WebApi.Application.Features.Auth.Command.Register;
+using WebApi.Application.Features.Auth.Command.Revoke;
+using WebApi.Application.Features.Auth.Command.RevokeAll;
 
 namespace WebApi.ApiUI.Controllers
 {
@@ -39,5 +41,18 @@ namespace WebApi.ApiUI.Controllers
             return StatusCode(StatusCodes.Status200OK, response);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Revoke(RevokeCommandRequest request)
+        {
+            await mediator.Send(request);
+            return StatusCode(StatusCodes.Status200OK);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RevokeAll()
+        {
+            await mediator.Send(new RevokeAllCommandRequest());
+            return StatusCode(StatusCodes.Status200OK);
+        }
     }
 }
