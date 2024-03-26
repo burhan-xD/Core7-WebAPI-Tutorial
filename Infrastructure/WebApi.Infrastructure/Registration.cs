@@ -7,7 +7,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WebApi.Application.Interfaces.RedisCache;
 using WebApi.Application.Interfaces.Tokens;
+using WebApi.Infrastructure.RedisCache;
 using WebApi.Infrastructure.Tokens;
 
 namespace WebApi.Infrastructure
@@ -18,6 +20,9 @@ namespace WebApi.Infrastructure
         {
             services.Configure<TokenSettings>(configuration.GetSection("JWT"));
             services.AddTransient<ITokenService, TokenService>();
+
+            services.Configure<RedisCacheSettings>(configuration.GetSection("RedisCacheSettings"));
+            services.AddTransient<IRedisCacheService, RedisCacheService>();
 
             services.AddAuthentication(opt =>
             {
@@ -37,6 +42,12 @@ namespace WebApi.Infrastructure
                     ValidAudience = configuration["JWT:Audience"],
                     ClockSkew = TimeSpan.Zero
                 };
+            });
+
+            services.AddStackExchangeRedisCache(opt =>
+            {
+                opt.Configuration = configuration["RedisCacheSettings:ConnectionString"];
+                opt.InstanceName = configuration["RedisCacheSettings:InstanceName"];
             });
 
         }
